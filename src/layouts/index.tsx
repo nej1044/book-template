@@ -1,14 +1,9 @@
-import { graphql, useStaticQuery } from 'gatsby'
-import React from 'react'
-
-interface INode {
-  frontmatter: {
-    title: string
-    date: Date
-  }
-  id: React.Key
-  excerpt: string
-}
+import { graphql, useStaticQuery } from 'gatsby';
+import React from 'react';
+import Header from './Header';
+import Sidebar from './Sidebar';
+import styled from 'styled-components';
+import '../styles/main.css';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const data = useStaticQuery(graphql`
@@ -21,6 +16,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       allMdx(sort: { frontmatter: { date: DESC } }) {
         nodes {
           frontmatter {
+            slug
             date(formatString: "MMMM D, YYYY")
             title
           }
@@ -29,23 +25,33 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
         }
       }
     }
-  `)
+  `);
 
   return (
-    <div>
-      <header>{data.site.siteMetadata.title}</header>
-      <div>
-        <nav>
-          <ul>
-            {data.allMdx.nodes.map((node: INode) => (
-              <li key={node.id}>{node.frontmatter.title}</li>
-            ))}
-          </ul>
-        </nav>
-        <main>{children}</main>
-      </div>
-    </div>
-  )
-}
+    <Wrapper>
+      <Header title={data.site.siteMetadata.title} />
+      <FlexWrapper>
+        <Sidebar data={data.allMdx.nodes} />
+        <Main>{children}</Main>
+      </FlexWrapper>
+    </Wrapper>
+  );
+};
 
-export default Layout
+export default Layout;
+
+const Wrapper = styled.div`
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+`;
+
+const FlexWrapper = styled.div`
+  display: flex;
+`;
+
+const Main = styled.section`
+  width: 80%;
+  padding: 2rem;
+  overflow: hidden;
+`;

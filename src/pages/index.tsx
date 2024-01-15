@@ -1,9 +1,8 @@
-import * as React from 'react'
-import type { PageProps } from 'gatsby'
-import Layout from '../layouts'
+import * as React from 'react';
+import type { PageProps } from 'gatsby';
 
 const IndexPage: React.FC<PageProps> = () => {
-  return <div>내용</div>
-}
+  return <div>내용</div>;
+};
 
-export default IndexPage
+export default IndexPage;

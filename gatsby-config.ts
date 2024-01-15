@@ -1,4 +1,4 @@
-import type { GatsbyConfig } from 'gatsby'
+import type { GatsbyConfig } from 'gatsby';
 
 const config: GatsbyConfig = {
   siteMetadata: {
@@ -16,12 +16,12 @@ const config: GatsbyConfig = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'docs',
+        name: '@docs',
         path: './src/docs/',
       },
       __key: 'docs',
     },
   ],
-}
+};
 
-export default config
+export default config;
