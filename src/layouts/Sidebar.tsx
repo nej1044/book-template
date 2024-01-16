@@ -67,6 +67,6 @@ const MenuLink = styled(CustomLink)`
   &.current,
   &:hover {
     color: #fff;
-    background-color: #909090;
+    background-color: #afcbbf;
   }
 `;

@@ -48,10 +48,26 @@ const Wrapper = styled.div`
 
 const FlexWrapper = styled.div`
   display: flex;
+  height: 100%;
 `;
 
 const Main = styled.section`
   width: 80%;
+  height: 96%;
   padding: 2rem;
-  overflow: hidden;
+  overflow-y: scroll;
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.8rem;
+  }
+  h3 {
+    font-size: 1.6rem;
+  }
+  h1,
+  h2,
+  h3 {
+    margin: 0.5rem 0;
+  }
 `;

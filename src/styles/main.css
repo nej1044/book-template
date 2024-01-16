@@ -20,7 +20,6 @@ acronym,
 address,
 big,
 cite,
-code,
 del,
 dfn,
 em,
@@ -32,7 +31,6 @@ s,
 samp,
 small,
 strike,
-strong,
 sub,
 sup,
 tt,
@@ -83,7 +81,6 @@ video {
   padding: 0;
   border: 0;
   font-size: 100%;
-  font: inherit;
   vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -131,7 +128,18 @@ table {
   font-style: normal;
 }
 
-* {
+code {
+  display: inline-block;
+  width: 100%;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  border-radius: 0.3rem;
+  background-color: #ededed;
+  word-break: keep-all;
+}
+
+:not(code) {
   font-family: 'Pretendard-Regular' !important;
+  line-height: 1.15;
   box-sizing: border-box;
 }
