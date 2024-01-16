@@ -1,9 +1,15 @@
-import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
+import { CustomLink } from '../styles/global';
 
 const Header = ({ title }: { title: string }) => {
-  return <StyledHeader>{title}</StyledHeader>;
+  return (
+    <StyledHeader>
+      <CustomLink to="/">
+        <h1>{title}</h1>
+      </CustomLink>
+    </StyledHeader>
+  );
 };
 
 export default Header;
