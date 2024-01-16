@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { CustomLink } from '../styles/global';
+import { useLocation } from '@reach/router';
 
 interface INode {
   frontmatter: {
@@ -13,7 +14,7 @@ interface INode {
 }
 
 const Sidebar = ({ data }: { data: INode[] }) => {
-  console.log();
+  const location = useLocation();
 
   return (
     <Nav>
@@ -24,8 +25,7 @@ const Sidebar = ({ data }: { data: INode[] }) => {
               to={`/blog/${node.frontmatter.slug}`}
               key={node.id}
               className={
-                window.location.pathname.split('/').at(-2) ===
-                node.frontmatter.slug
+                location.pathname.split('/').at(-2) === node.frontmatter.slug
                   ? 'current'
                   : ''
               }
